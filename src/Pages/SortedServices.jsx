@@ -33,7 +33,7 @@ const SortedServices = () => {
                 {services.map((service) => (
                     <motion.div
                         key={service._id}
-                        className="bg-white shadow-lg rounded-lg overflow-hidden"
+                        className="bg-white shadow-lg rounded-lg overflow-hidden h-[500px]"
                         variants={cardVariants}
                         initial="hidden"
                         animate="visible"
