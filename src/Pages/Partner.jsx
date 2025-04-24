@@ -16,14 +16,15 @@ const Partner = () => {
     ];
 
     return (
-        <div className="py-10 bg-base-100">
-            <h2 className="text-3xl font-bold text-center mb-6">Our Partners</h2>
+        <div className="py-10 bg-white dark:bg-gray-900">
+            <h2 className="text-3xl font-bold text-center mb-6 dark:text-white">Our Partners</h2>
             <Marquee speed={50} pauseOnHover={true} gradient={false}>
                 {logos.map((logo, index) => (
                     <img
                         key={index}
                         src={logo}
                         className="h-24 mx-4"
+                        alt={`Partner logo ${index + 1}`}
                     />
                 ))}
             </Marquee>
@@ -32,3 +33,6 @@ const Partner = () => {
 };
 
 export default Partner;
+
+
+

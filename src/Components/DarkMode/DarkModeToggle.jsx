@@ -1,4 +1,3 @@
-// src/Components/DarkMode/DarkModeToggle.jsx
 import { useContext } from 'react';
 import { DarkModeContext } from './DarkModeContext';
 
