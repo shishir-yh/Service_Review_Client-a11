@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { authContext } from "../Components/Authprovider/Authprovider";
+import DarkModeToggle from "../Components/DarkMode/DarkModeToggle";
+
 
 const Navbar = () => {
     const { user, handleSignOut } = useContext(authContext);
@@ -142,7 +144,7 @@ const Navbar = () => {
                 <ul className="menu menu-horizontal px-1 gap-4">{renderLinks()}</ul>
             </div>
 
-            {/* Navbar End */}
+            {/* Navbar End
             <div className="navbar-end hidden lg:flex px-4">
                 {user ? (
                     <div className="flex items-center" title={user.displayName || "User"}>
@@ -181,7 +183,49 @@ const Navbar = () => {
                         </NavLink>
                     </div>
                 )}
+            </div> */}
+            <div className="navbar-end hidden lg:flex px-4">
+                <DarkModeToggle /> {/* 🌓 Dark Mode Button */}
+
+                {user ? (
+                    <div className="flex items-center ml-4" title={user.displayName || "User"}>
+                        <img
+                            className="rounded-full lg:w-[50px] md:w-[50px] w-[50px] h-[50px]"
+                            src={user.photoURL || "https://via.placeholder.com/50"}
+                            alt="User Avatar"
+                        />
+                        <NavLink
+                            onClick={handleSignOut}
+                            className={({ isActive }) =>
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                            }
+                            to="/login"
+                        >
+                            LogOut
+                        </NavLink>
+                    </div>
+                ) : (
+                    <div>
+                        <NavLink
+                            className={({ isActive }) =>
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                            }
+                            to="/login"
+                        >
+                            Login
+                        </NavLink>
+                        <NavLink
+                            className={({ isActive }) =>
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                            }
+                            to="/register"
+                        >
+                            Register
+                        </NavLink>
+                    </div>
+                )}
             </div>
+
         </div>
     );
 };
