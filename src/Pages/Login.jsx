@@ -115,7 +115,7 @@ const Login = () => {
 
                 <button
                     onClick={googleLoginHandler}
-                    className="btn btn-outline btn-accent w-full flex items-center justify-center"
+                    className="btn  btn-primary w-full flex items-center justify-center hover:bg-blue-600"
                 >
                     <img
                         src="https://img.icons8.com/color/24/google-logo.png"
