@@ -118,7 +118,7 @@ const Navbar = () => {
                                 <NavLink
                                     onClick={handleSignOut}
                                     className={({ isActive }) =>
-                                        `font-bold ${isActive ? "text-purple-600 underline" : ""}`
+                                        `font-bold ${isActive ? "text-purple-600 underline " : ""}`
                                     }
                                     to="/login"
                                 >
@@ -154,7 +154,7 @@ const Navbar = () => {
                         <NavLink
                             onClick={handleSignOut}
                             className={({ isActive }) =>
-                                `btn bg-gray-300 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
                             }
                             to="/login"
                         >
