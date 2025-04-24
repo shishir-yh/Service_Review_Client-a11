@@ -165,7 +165,7 @@ const Navbar = () => {
                     <div>
                         <NavLink
                             className={({ isActive }) =>
-                                `btn bg-gray-300 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
                             }
                             to="/login"
                         >
@@ -173,7 +173,7 @@ const Navbar = () => {
                         </NavLink>
                         <NavLink
                             className={({ isActive }) =>
-                                `btn bg-gray-300 ml-3 font-bold ${isActive ? "text-white" : ""}`
+                                `btn bg-blue-400 ml-3 font-bold ${isActive ? "text-white" : ""}`
                             }
                             to="/register"
                         >
