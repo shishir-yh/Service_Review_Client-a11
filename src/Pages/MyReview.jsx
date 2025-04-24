@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -11,8 +7,9 @@ const MyReviews = () => {
     const [reviews, setReviews] = useState([]); // User's reviews
     const [selectedReview, setSelectedReview] = useState(null); // Selected review for updating
     const [updatedReview, setUpdatedReview] = useState({}); // Updated review data
+    const [loading, setLoading] = useState(true); // Loading spinner
 
-    // Fetch the authenticated user's email
+    // Get authenticated user's email
     useEffect(() => {
         const auth = getAuth();
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -24,10 +21,17 @@ const MyReviews = () => {
     // Fetch reviews for the logged-in user
     useEffect(() => {
         if (userEmail) {
+            setLoading(true);
             fetch(`https://service-review-server-swart.vercel.app/service-review?email=${userEmail}`)
                 .then((res) => res.json())
-                .then((data) => setReviews(data))
-                .catch((err) => console.error("Error fetching reviews:", err));
+                .then((data) => {
+                    setReviews(data);
+                    setLoading(false);
+                })
+                .catch((err) => {
+                    console.error("Error fetching reviews:", err);
+                    setLoading(false);
+                });
         }
     }, [userEmail]);
 
@@ -83,6 +87,15 @@ const MyReviews = () => {
                 }
             });
     };
+
+    // Show loading spinner
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <span className="loading loading-spinner loading-lg text-primary"></span>
+            </div>
+        );
+    }
 
     return (
         <div className="p-6">

@@ -55,7 +55,7 @@ export default function App() {
                                 alt={`Slide ${index + 1}`}
                                 className="w-full h-[400px] md:h-[500px] lg:h-[700px] "
                             />
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-white via-blue-400 to-transparent text-white text-center">
+                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-white via-blue-500 to-transparent text-white text-center">
                                 <p className="text-lg md:text-xl lg:text-2xl font-bold">
                                     {slide.text}
                                 </p>
